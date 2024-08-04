@@ -22,3 +22,12 @@ def hello_world (request):
     else:
         hello_world_list = HelloWorld.objects.all()
         return render(request, 'accountapp/helloworld.html', context={'hello_world_list' : hello_world_list})
+
+    def list_creator (tag):
+        def text_wrapper(msg) :
+            print('{0} {1}'.format(tag, msg))
+        return text_wrapper
+
+    data_list_minus = list_creator('-')
+    data_list_minus('얀녕')
+
